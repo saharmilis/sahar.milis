@@ -1,15 +1,17 @@
 ---
 permalink: /
-title: "AI Expert, Data Science University Lecturer, and Techno-Optimist..."
+title: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-I believe we can change the world with PyTorch and a keyboard ;)
-
+A combination of an AI Expert, Data Science University Lecturer, and Techno-Optimist...
 Specializing in LLMs, Post-Training, Evals, and Synthetic Data Generation.  
+
+> I believe we can change the world with PyTorch and a keyboard ;)
+
 
 Stuff that I would always like to talk about:  
 AI, Data, Research, Harness, and Evals.   
