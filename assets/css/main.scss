@@ -36,3 +36,8 @@
     "layout/archive",
     "layout/sidebar"
 ;
+
+/* Let the footer follow page content instead of pinning it to the viewport. */
+.page__footer {
+  position: static;
+}
