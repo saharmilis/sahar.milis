@@ -28,8 +28,8 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "AI-NLP-LLMs Expert, Lecturer, Optimist"
   location         : "Europe"
-  employer         : "Reichman University (runi.ac.il)"
-  uri              : # URL
+  employer         : "Reichman University"
+  uri              : "runi.ac.il"
   email            :
 
   # Academic websites
