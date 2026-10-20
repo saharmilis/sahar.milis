@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Millis - AI Expert, Lecturer, Optimist"
+title: "Sahar Miilis | AI Expert, Data Science University Lecturer, and Techno-Optimist..."
 author_profile: true
 redirect_from: 
   - /about/
