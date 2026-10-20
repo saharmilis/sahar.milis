@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "SM"
 title_separator          : "-"
 name                     : &name "Sahar (Miles) Millis"
-description              : &description "AI-NLP-LLMs Expert, Lecturer, Optimist"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "AI, NLP, LLMs, SFT, RLVR, Evals, Post-training, LaaJ, Agents, Harness" # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : "https://saharmillis.com" # Public hostname and protocol for this site
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # This site is hosted at the domain root
