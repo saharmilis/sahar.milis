@@ -26,7 +26,7 @@ author:
   avatar           : "profile.png"
   name             : "Sahar (Miles) Millis"
   pronouns         : # example: "she/her"  
-  bio              : "AI-NLP-LLMs Expert, Lecturer, Optimist"
+  bio              : "AI NLP LLMs Evals LaaJ SFT RLVR Post-training Agents Harness"
   location         : "Europe"
   employer         : "Reichman University"
   uri              : "https://runi.ac.il"
@@ -144,7 +144,7 @@ facebook:
   app_id                 :
   publisher              :
 og_image                 : profile.png   # Social media default site image (lives in /images/)
-og_description           : "Sahar Miilis | AI-NLP-LLMs Expert, Data Science University Lecturer, and Techno-Optimist..." # Social media default site image description
+og_description           : "Sahar Miilis | AI Expert, Data Science University Lecturer, and Techno-Optimist... Let's talk about AI, NLP, LLMs, SFT, RLVR, Evals, Post-training, LaaJ, Agents, Harness, and more..." # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
