@@ -14,9 +14,8 @@ Specializing in LLMs, Post-Training, Evals, and Synthetic Data Generation.
 
 
 Stuff that I would always like to talk about:  
-AI, Data, Research, Harness, and Evals.   
-LoRA, QLoRA, SFT, DPO, GRPO, RLVR, RAG, ETLs, LaaJ, Synthetic Data  
-Domain Adaptation, Persona Modeling, Agent Distillation, Meta-Harness  
+- AI, Data, Research, Evals, and the future.   
+- LoRA, QLoRA, SFT, DPO, GRPO, RLVR, RAG, ETLs, LaaJ, Synthetic Data Generation, Domain Adaptation, Persona Modeling, Agent Distillation, Meta-Harness  
 
 My favorite Post-Training models: LLaMA, Qwen, DeepSeek, Gemma, Nemotron, ...  
 On AWS, GCP, HF, Local AI (DGX Spark)  
