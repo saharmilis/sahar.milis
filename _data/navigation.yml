@@ -14,8 +14,9 @@ main:
   - title: "University Courses"
     url: /teaching/
 
-  - title: "Domain Expertise"
-    url: /domains/
+  # Hidden from navigation while under development.
+  # - title: "Domain Expertise"
+  #   url: /domains/
 
   - title: "Government"
     url: /government/
@@ -23,8 +24,9 @@ main:
   - title: "Research"
     url: /research/
 
-  - title: "Blog"
-    url: /blog/
+  # Hidden from navigation while under development.
+  # - title: "Blog"
+  #   url: /blog/
 
   - title: "More"
     url: /inspiration/
