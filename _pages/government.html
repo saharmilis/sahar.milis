@@ -5,16 +5,19 @@ permalink: /government/
 author_profile: true
 ---
 
+{% include base_path %}
+
 {% comment %}
-Add committee appearances in _talks with section: government.
-Use title, date, link, and header.teaser for the title, date, external URL, and image.
-Images under /images/ use a filename such as committee-photo.jpg.
-Keep unrelated talk samples in place; only matching entries appear here.
+Add Markdown entries in _portfolio with collection: portfolio and section: government.
+Use title and date for the heading and the date the event happened.
+Use excerpt for the short description, image, and any additional Markdown links,
+following the existing portfolio examples. A header.teaser image only appears in grid view.
+An optional link field makes the title point to an external page.
+Give each entry a permalink such as /government/committee-appearance/.
+Only entries marked section: government appear here; portfolio samples are preserved.
 {% endcomment %}
 
-{% assign government_talks = site.talks | where: "section", "government" | sort: "date" | reverse %}
-<div class="grid__wrapper">
-  {% for post in government_talks %}
-    {% include archive-single-talk.html type="grid" %}
-  {% endfor %}
-</div>
+{% assign government_entries = site.portfolio | where: "section", "government" | sort: "date" | reverse %}
+{% for post in government_entries %}
+  {% include archive-single.html %}
+{% endfor %}
