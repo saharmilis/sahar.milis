@@ -9,25 +9,25 @@ author_profile: true
   <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
-<h2>Ongoing Research</h2>
+{% include base_path %}
 
-<ul>
-  <li>
-    <strong>It's Not the Chatbot, It's How You Learn: A Multi-Cohort Study of Student Practices and Academic Achievement</strong><br>
-    Ongoing — planned for Q4-2026
-  </li>
-  <li>
-    <strong>Evaluating AI Relationship Advice Using Gottman’s Four Horsemen</strong><br>
-    Ongoing — planned for Q1-2027
-  </li>
-  <li>
-    <strong>Dialectal Bias in Web-Scale Text Corpora:</strong><br>
-    Ongoing — planned for Q3-2027
-  </li>
-</ul>
-
-<h2>Publications</h2>
-
-<ul>
-  <li><a href="https://www.researchgate.net/publication/405052189">Publication on ResearchGate</a></li>
-</ul>
+<!-- New style rendering if publication categories are defined -->
+{% if site.publication_category %}
+  {% for category in site.publication_category  %}
+    {% assign title_shown = false %}
+    {% for post in site.publications reversed %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.publications reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
