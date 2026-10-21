@@ -1,0 +1,21 @@
+---
+layout: archive
+title: "Domain Expertise"
+permalink: /domains/
+author_profile: true
+---
+
+AI applications across healthcare, cybersecurity, gaming, sales, marketing, and other domains.
+
+{% comment %}
+Add entries in _portfolio with section: domains and header.teaser for a card image.
+Use title, excerpt, and link for the card's heading, description, and optional external URL.
+Keep unrelated portfolio samples in place; only matching entries appear here.
+{% endcomment %}
+
+{% assign domain_entries = site.portfolio | where: "section", "domains" %}
+<div class="grid__wrapper">
+  {% for post in domain_entries %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div>

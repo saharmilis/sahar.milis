@@ -1,0 +1,20 @@
+---
+layout: archive
+title: "Government"
+permalink: /government/
+author_profile: true
+---
+
+{% comment %}
+Add committee appearances in _talks with section: government.
+Use title, date, link, and header.teaser for the title, date, external URL, and image.
+Images under /images/ use a filename such as committee-photo.jpg.
+Keep unrelated talk samples in place; only matching entries appear here.
+{% endcomment %}
+
+{% assign government_talks = site.talks | where: "section", "government" | sort: "date" | reverse %}
+<div class="grid__wrapper">
+  {% for post in government_talks %}
+    {% include archive-single-talk.html type="grid" %}
+  {% endfor %}
+</div>
