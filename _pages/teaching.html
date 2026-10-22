@@ -7,6 +7,18 @@ author_profile: true
 
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
+<p>I lecture on undergraduate courses at Reichman University. In 2023, I served as a teaching assistant for MSc courses.</p>
+<p>Courses are organised by academic year and semester. Each year refers to the academic year ending in that year; for example, 2027 means 2026–2027. Parallel teaching groups are listed together, with separate syllabi where available.</p>
+
+{% assign teaching_records = site.teaching | where: "teaching_record", true %}
+{% assign teaching_years = teaching_records | group_by: "academic_year" | sort: "name" | reverse %}
+{% for year in teaching_years %}
+  <h2>{{ year.name }}</h2>
+  {% assign teaching_semesters = year.items | group_by: "semester" | sort: "name" %}
+  {% for semester in teaching_semesters %}
+    <h3>Semester {{ semester.name }}</h3>
+    {% for post in semester.items %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
 {% endfor %}
