@@ -28,5 +28,8 @@ main:
   # - title: "Blog"
   #   url: /blog/
 
+  - title: "Slowmad"
+    url: /slowmad/
+
   - title: "More"
     url: /inspiration/
