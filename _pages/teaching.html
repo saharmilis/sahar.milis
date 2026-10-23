@@ -10,6 +10,11 @@ author_profile: true
 <p>I lecture on undergraduate courses at Reichman University. In 2023, I served as a teaching assistant for MSc courses.</p>
 <p>Courses are organised by academic year and semester. Each year refers to the academic year ending in that year; for example, 2027 means 2026–2027. Parallel teaching groups are listed together, with separate syllabi where available.</p>
 
+<video controls playsinline preload="metadata" style="width: 100%; height: auto;" aria-label="Data science lecture video">
+  <source src="{{ '/images/lecture1_ds_2x.mp4' | relative_url }}" type="video/mp4">
+  Your browser does not support embedded video. <a href="{{ '/images/lecture1_ds_2x.mp4' | relative_url }}">Watch the lecture video</a>.
+</video>
+
 {% assign teaching_records = site.teaching | where: "teaching_record", true %}
 {% assign teaching_years = teaching_records | group_by: "academic_year" | sort: "name" | reverse %}
 {% for year in teaching_years %}
