@@ -13,6 +13,9 @@ People whose work inspires me, resources I use to stay up to date on AI and LLMs
 - [Sebastian Raschka](https://sebastianraschka.com/) — [LLM Architecture Gallery](https://sebastianraschka.com/llm-architecture-gallery/#architecture-gallery)
 - [Yann LeCun](https://scholar.google.com/citations?user=WLN3QrAAAAAJ&hl=en) — Google Scholar profile
 
+- [Sam Witteveen](https://www.youtube.com/@samwitteveenai)
+- [Patrick Winston](https://en.wikipedia.org/wiki/Patrick_Winston)
+
 ## Tools and services
 
 - [Pi](https://pi.dev/)
