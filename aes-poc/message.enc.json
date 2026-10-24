@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "algorithm": "AES-256-GCM",
+  "iv": "gLvJr9SwNWVUhLyc",
+  "ciphertext": "bSMkIqYUO2z9LLlsobMMhLqXmS2MrDVEjfi_8t9clUfkrNXs_znJDLAIB_8c7Y5LjIVnQdBJmhAdSidqg34vpzuuHeUmnCWOj_zRKnURH5znuLHT"
+}
