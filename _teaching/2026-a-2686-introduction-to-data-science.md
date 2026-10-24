@@ -23,8 +23,6 @@ share: false
 comments: false
 excerpt: |
   An end-to-end introduction to data science, machine learning, and practical AI applications. Taught in Hebrew.
-
-  [Syllabus (Hebrew, PDF)](/files/syllabi/2686-2026-a.pdf)
 ---
 
 - **Institution:** Reichman University

@@ -23,8 +23,6 @@ share: false
 comments: false
 excerpt: |
   Master’s-level NLP, from statistical language models to embeddings, attention, and transformers. Teaching Assistant.
-
-  [Syllabus (English, PDF)](/files/syllabi/3523-2023-b.pdf)
 ---
 
 - **Institution:** Reichman University

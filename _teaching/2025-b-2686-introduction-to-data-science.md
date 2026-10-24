@@ -27,8 +27,6 @@ share: false
 comments: false
 excerpt: |
   Python-based data analysis and machine learning for business and entrepreneurship. Two teaching groups: Hebrew and English.
-
-  [Group 1 — Hebrew syllabus (PDF)](/files/syllabi/2686-2025-b_1.pdf) · [Group 2 — English syllabus (PDF)](/files/syllabi/2686-2025-b_2.pdf)
 ---
 
 - **Institution:** Reichman University

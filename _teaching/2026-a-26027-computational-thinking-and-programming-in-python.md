@@ -23,8 +23,6 @@ share: false
 comments: false
 excerpt: |
   Computational thinking, Python programming, data analysis, and practical applications using APIs and AI tools. Taught in Hebrew.
-
-  [Syllabus (Hebrew, PDF)](/files/syllabi/26027-2026-a.pdf)
 ---
 
 - **Institution:** Reichman University

@@ -23,8 +23,6 @@ share: false
 comments: false
 excerpt: |
   Practical data science, predictive modelling, model evaluation, and communication of analytical insights. Taught in Hebrew.
-
-  [Syllabus (Hebrew, PDF)](/files/syllabi/2686-2026-b.pdf)
 ---
 
 - **Institution:** Reichman University

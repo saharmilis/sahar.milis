@@ -23,8 +23,6 @@ share: false
 comments: false
 excerpt: |
   Master’s-level study of personalised recommendations, collaborative filtering, matrix factorisation, and deep learning. Teaching Assistant.
-
-  [Syllabus (Hebrew, PDF)](/files/syllabi/3639-2023-a.pdf)
 ---
 
 - **Institution:** Reichman University

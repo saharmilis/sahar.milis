@@ -44,9 +44,10 @@ lecture_video_width: 560
 
 <p>Please contact the teaching team or the university in advance to discuss availability and arrangements. All participation is subject to university policies and approval.</p>
 
-<h2>Courses by Academic Year</h2>
+<h2>Courses</h2>
 
 {% assign teaching_records = site.teaching | where: "teaching_record", true %}
+{% assign teaching_records = teaching_records | concat: site.data.teaching_history %}
 {% assign teaching_years = teaching_records | group_by: "academic_year" | sort: "name" | reverse %}
 {% for year in teaching_years %}
   <h3>{{ year.name }}</h3>
@@ -54,7 +55,16 @@ lecture_video_width: 560
   {% for semester in teaching_semesters %}
     <h4>Semester {{ semester.name }}</h4>
     {% for post in semester.items %}
-      {% include archive-single.html %}
+      {% if post.listing_only %}
+        <div class="list__item">
+          <article class="archive__item">
+            <h2 class="archive__item-title">{{ post.title | escape }}</h2>
+            <p>{{ post.degree | escape }}, {{ post.level | escape }}, <i>{{ post.venue | escape }}</i></p>
+          </article>
+        </div>
+      {% else %}
+        {% include archive-single.html %}
+      {% endif %}
     {% endfor %}
   {% endfor %}
 {% endfor %}

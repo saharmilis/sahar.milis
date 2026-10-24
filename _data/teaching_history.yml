@@ -1,0 +1,15 @@
+# Historical teaching records without individual course pages.
+- title: 417 — Intro to Computer Science
+  academic_year: 2024
+  semester: A
+  degree: Computer Science B.Sc
+  level: Undergraduate course
+  venue: Reichman University
+  listing_only: true
+- title: 417 — Intro to Computer Science
+  academic_year: 2024
+  semester: B
+  degree: Computer Science B.Sc
+  level: Undergraduate course
+  venue: Reichman University
+  listing_only: true
