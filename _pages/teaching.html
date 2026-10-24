@@ -3,6 +3,7 @@ layout: archive
 title: "University Courses"
 permalink: /teaching/
 author_profile: true
+lecture_video_width: 560
 ---
 
 {% include base_path %}
@@ -19,6 +20,11 @@ author_profile: true
 <p>My teaching philosophy centers on <strong>bridging theory and practice</strong>, equipping students with the conceptual foundations, technical proficiency, and problem-solving skills to <strong>develop real-world applications, address complex computational challenges, and pursue independent academic research</strong>.</p>
 
 <p>Course information, teaching materials, and syllabi are available below, organized by academic year and semester.</p>
+
+<video class="align-center" controls controlslist="nodownload noplaybackrate noremoteplayback nofullscreen" disablepictureinpicture disableremoteplayback playsinline preload="metadata" style="width: 100%; max-width: {{ page.lecture_video_width }}px; height: auto;" aria-label="Data science lecture video">
+  <source src="{{ '/images/lecture1_ds_2x.mp4' | relative_url }}" type="video/mp4">
+  Your browser does not support embedded video. <a href="{{ '/images/lecture1_ds_2x.mp4' | relative_url }}">Watch the lecture video</a>.
+</video>
 
 <h3>Guest Lectures &amp; Industry Collaboration</h3>
 
@@ -38,18 +44,15 @@ author_profile: true
 
 <p>Please contact the teaching team or the university in advance to discuss availability and arrangements. All participation is subject to university policies and approval.</p>
 
-<video controls controlslist="nodownload noplaybackrate noremoteplayback nofullscreen" disablepictureinpicture disableremoteplayback playsinline preload="metadata" style="width: 100%; height: auto;" aria-label="Data science lecture video">
-  <source src="{{ '/images/lecture1_ds_2x.mp4' | relative_url }}" type="video/mp4">
-  Your browser does not support embedded video. <a href="{{ '/images/lecture1_ds_2x.mp4' | relative_url }}">Watch the lecture video</a>.
-</video>
+<h2>Courses by Academic Year</h2>
 
 {% assign teaching_records = site.teaching | where: "teaching_record", true %}
 {% assign teaching_years = teaching_records | group_by: "academic_year" | sort: "name" | reverse %}
 {% for year in teaching_years %}
-  <h2>{{ year.name }}</h2>
+  <h3>{{ year.name }}</h3>
   {% assign teaching_semesters = year.items | group_by: "semester" | sort: "name" %}
   {% for semester in teaching_semesters %}
-    <h3>Semester {{ semester.name }}</h3>
+    <h4>Semester {{ semester.name }}</h4>
     {% for post in semester.items %}
       {% include archive-single.html %}
     {% endfor %}
