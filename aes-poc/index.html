@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Encrypted Message · AES-GCM Proof of Concept</title>
+<style>
+:root { color-scheme:dark; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#0b1323; color:#edf2fa; }
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px}
+main{width:min(100%,710px);background:#142139;border:1px solid #31425b;border-radius:18px;padding:clamp(20px,4vw,38px);box-shadow:0 20px 70px #0004}
+h1{font-size:clamp(23px,4vw,30px);margin:0 0 7px}p{line-height:1.6;color:#b8c5d9}small{color:#a9b9d1}
+.eyebrow{font-size:12px;color:#c9b17f;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:13px}
+#status{border:1px solid #425976;border-radius:10px;padding:13px 15px;color:#d0dded;background:#101b2f;line-height:1.5;margin:22px 0 14px}
+#status.ok{border-color:#3f8667;color:#baf4d8}#status.error{border-color:#bc6d70;color:#ffcbce}
+pre{margin:0;border-radius:10px;padding:23px;background:#f8f4ea;color:#1b2a42;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8;font-size:17px;min-height:195px}
+button{border:0;border-radius:9px;background:#d7bd89;color:#1d2736;padding:11px 16px;font:inherit;font-weight:700;cursor:pointer;margin-top:16px}
+button[hidden],section[hidden]{display:none}footer{margin-top:21px;font-size:12px;color:#8fa1b9;line-height:1.6}
+</style>
+</head>
+<body><main>
+<div class="eyebrow">Certificate encryption architecture · technical demo</div>
+<h1>AES-GCM encrypted document</h1>
+<p>This page downloads a publicly hosted encrypted file and decrypts it <strong>locally in your browser</strong>, using the secret key in your link.</p>
+<div id="status" role="status" aria-live="polite">Checking your decryption link…</div>
+<section id="result" hidden>
+<pre id="content"></pre>
+<button type="button" id="download">Download decrypted text</button>
+</section>
+<footer>The ciphertext is public. The key is not uploaded with it. Anyone with the complete secret link can decrypt this demo. Never upload the key file to a public repository.</footer>
+</main>
+<script>
+'use strict';
+(async () => {
+  const status = document.getElementById('status');
+  const result = document.getElementById('result');
+  const content = document.getElementById('content');
+  const setStatus = (message, kind = '') => {status.textContent = message; status.className = kind;};
+  const fromBase64url = (s) => {
+    if (!/^[A-Za-z0-9_-]+$/.test(s)) throw new Error('Invalid key or file encoding.');
+    const base64 = s.replace(/-/g, '+').replace(/_/g, '/');
+    const binary = atob(base64 + '='.repeat((4 - base64.length % 4) % 4));
+    return Uint8Array.from(binary, c => c.charCodeAt(0));
+  };
+  try {
+    // URL fragment is never sent to GitHub Pages as part of the HTTP request.
+    const fragment = new URLSearchParams(location.hash.slice(1));
+    const encodedKey = fragment.get('key');
+    if (!encodedKey) {setStatus('No decryption key found. Open the complete URL containing #key=…', 'error'); return;}
+    const keyBytes = fromBase64url(encodedKey);
+    if (keyBytes.length !== 32) throw new Error('Expected a 256-bit (32-byte) AES key.');
+    if (!crypto?.subtle) throw new Error('Web Crypto is unavailable. Open the page over HTTPS.');
+    setStatus('Fetching encrypted document from GitHub Pages…');
+    // Relative path keeps the same code working on custom domains and in project folders.
+    const response = await fetch('./message.enc.json', {cache:'no-store', credentials:'omit'});
+    if (!response.ok) throw new Error('Cannot fetch message.enc.json (HTTP ' + response.status + '). Check the directory and GitHub Pages deployment.');
+    const payload = await response.json();
+    if (payload.version !== 1 || payload.algorithm !== 'AES-256-GCM') throw new Error('Unsupported encrypted file format.');
+    const iv = fromBase64url(payload.iv);
+    const ciphertext = fromBase64url(payload.ciphertext);
+    if (iv.length !== 12 || ciphertext.length < 16) throw new Error('The encrypted file is invalid.');
+    setStatus('Decrypting in your browser…');
+    const key = await crypto.subtle.importKey('raw', keyBytes, {name:'AES-GCM'}, false, ['decrypt']);
+    const plaintext = await crypto.subtle.decrypt({name:'AES-GCM', iv, tagLength:128}, key, ciphertext);
+    const message = new TextDecoder('utf-8',{fatal:true}).decode(plaintext);
+    content.textContent = message; // Text-only, never interpret decrypted content as HTML.
+    result.hidden = false;
+    setStatus('Decryption successful. The text below is the original document.', 'ok');
+    document.getElementById('download').addEventListener('click', () => {
+      const blob = new Blob([message], {type:'text/plain;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'decrypted-message.txt'; a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+  } catch (error) {
+    setStatus('Unable to decrypt: ' + (error instanceof Error ? error.message : 'Unknown error') + '. Make sure the encrypted file and the key belong together.', 'error');
+  }
+})();
+</script>
+</body></html>
