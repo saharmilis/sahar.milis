@@ -1,1 +1,31 @@
 *{box-sizing:border-box}html{color-scheme:dark}body{margin:0;background:#0b1b2b;color:#edf3f7;font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1100px;margin:40px auto 60px;padding:0 20px}.top{display:flex;gap:12px;align-items:center;margin-bottom:24px}.brand{width:48px;height:48px;border:1px solid #a88853;border-radius:11px;display:grid;place-items:center;font:28px Georgia,serif;color:#e1c48d}.brandtext strong{display:block;letter-spacing:.06em}.brandtext small{display:block;color:#adc0cd;font-size:12px}.eyebrow-ui{font-size:11px;color:#d5b17c;text-transform:uppercase;letter-spacing:.15em;margin:0 0 6px}h1{font:500 clamp(27px,4vw,44px)/1.2 Georgia,serif;margin:0 0 12px}.helper{color:#bac8d2;font-size:14px;margin-bottom:25px}.bar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}.print{font:600 14px system-ui;padding:10px 16px;background:#d5b27c;border:0;border-radius:9px;color:#0b1b2b;cursor:pointer}.print:disabled{opacity:.35;cursor:default}.status{border:1px solid #35506a;border-radius:9px;background:#142c40;padding:12px 14px;color:#d6e5f0;margin-bottom:20px;font-size:14px}.status.error{background:#3d252b;border-color:#87515d;color:#ffdade}.canvas{overflow-x:auto;padding:12px 3px 27px}.certificate{max-width:1050px;min-width:670px;aspect-ratio:297/210;background:#fffaf1;color:#182f46;padding:17px;box-shadow:0 16px 40px #0005}.frame-outer{height:100%;border:4px double #c3a064;padding:11px}.frame-inner{height:100%;position:relative;border:1px solid #cbb58a;padding:24px 32px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;background:radial-gradient(ellipse,#fffdf8 35%,#fdf6e8 100%)}.cert-header{display:flex;width:100%;justify-content:space-between;gap:18px;font-size:10px;font-weight:800;letter-spacing:.12em;color:#736244;text-transform:uppercase}.cert-header span{max-width:42%;text-align:left}.cert-header span+span{text-align:right}.cert-center{display:flex;flex-direction:column;align-items:center;gap:8px}.cert-seal{border:2px solid #ba9352;color:#a47a3c;border-radius:50%;width:70px;height:70px;display:grid;place-items:center;font:32px Georgia,serif;box-shadow:0 0 0 5px #f1e4cd}.cert-center .eyebrow{color:#877553;letter-spacing:.25em;font-size:11px;font-weight:700;margin:12px 0 0}.cert-center h2{font:48px/1.1 Georgia,serif;margin:2px 0;color:#1a3349}.presented{font:italic 17px Georgia,serif;margin:0;color:#675d50}.cert-name{font:46px/1.1 Georgia,serif;max-width:95%;border-bottom:1px solid #c7a367;margin:8px 0 3px;padding:0 24px 9px;color:#142e44}.cert-center h3{font:700 24px/1.27 Georgia,serif;max-width:760px;margin:0}.distinction{display:inline-block;border:1px solid #c19d62;color:#8b6831;padding:5px 15px;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;margin-top:7px}.cert-footer{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end}.cert-footer div{display:flex;flex-direction:column;gap:3px;border-top:1px solid #bfa172;padding-top:9px}.cert-footer strong{font-size:14px;color:#253f53}.cert-footer span{font-size:11px;color:#6b7280}.cert-reference{font-size:9px;letter-spacing:.1em;color:#9c8669;margin:0}.demo-stamp{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%) rotate(-18deg);font-size:110px;font-weight:900;color:#9f42400c;pointer-events:none}.footer-note{color:#98acbc;font-size:12px;margin-top:16px}.hidden{display:none!important}@media(max-width:750px){main{margin-top:24px}.canvas{margin:0 -18px}.certificate{padding:10px}.frame-inner{padding:19px 18px}.cert-center h2{font-size:37px}.cert-name{font-size:34px}.cert-center h3{font-size:20px}}@page{size:A4 landscape;margin:0}@media print{html{color-scheme:light}body{background:#fff!important}main{max-width:none;margin:0;padding:0}.top,h1,.helper,.eyebrow-ui,.bar,.status,.footer-note{display:none!important}.canvas{padding:0;overflow:visible}.certificate{width:297mm;height:210mm;min-width:0;max-width:none;box-shadow:none;border:0;padding:6mm;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}.frame-inner{padding:8mm 12mm}.cert-center h2{font-size:43pt}.cert-name{font-size:37pt}.cert-center h3{font-size:22pt}}
+
+/* The decrypted document is the entire successful view. */
+[hidden]{display:none!important}
+html{color-scheme:light}
+body{background:#eee9df;color:#182f46}
+main{width:100%;max-width:1090px;margin:0 auto;padding:20px}
+body.certificate-ready{min-height:100vh;display:grid;align-items:center}
+.status{max-width:620px;margin:40px auto;background:#fffaf1;color:#182f46;border-color:#cbb58a}
+.canvas{width:100%;margin:0;padding:0;overflow:hidden}
+.certificate{width:1050px;min-width:1050px;max-width:none;transform-origin:top left}
+@media(max-width:750px){
+ main{margin:0;padding:8px}
+ .certificate{padding:17px}
+ .frame-inner{padding:24px 32px}
+ .cert-center h2{font-size:48px}
+ .cert-name{font-size:46px}
+ .cert-center h3{font-size:24px}
+}
+@media print{
+ body.certificate-ready{display:block;min-height:0}
+ main{width:auto;max-width:none;margin:0;padding:0}
+ .canvas{height:auto!important;overflow:visible}
+ .certificate{transform:none!important;width:297mm;height:210mm;min-width:0;max-width:none;padding:6mm}
+ .frame-inner{padding:8mm 12mm}
+ .cert-center h2{font-size:43pt}
+ .cert-name{font-size:37pt}
+ .cert-center h3{font-size:22pt}
+}
+
+main{min-width:0}

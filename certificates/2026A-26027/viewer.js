@@ -2,9 +2,8 @@
 'use strict';
 const statusEl = document.getElementById('status');
 const outputEl = document.getElementById('certificate');
-const printButton = document.getElementById('printBtn');
-printButton.addEventListener('click', () => window.print());
 function status(message, isError=false) {
+  statusEl.hidden = false;
   statusEl.textContent = message;
   statusEl.classList.toggle('error', isError);
 }
@@ -14,7 +13,9 @@ function decodeBase64url(s) {
   return Uint8Array.from(decoded, c => c.charCodeAt(0));
 }
 async function render() {
-  printButton.disabled = true;
+  outputEl.hidden = true;
+  statusEl.hidden = false;
+  document.body.classList.remove('certificate-ready');
   outputEl.replaceChildren();
   // One compact fragment holds both the file ID and 128-bit secret key.
   // Example: #001.SOME_22_CHARACTER_KEY
@@ -47,12 +48,22 @@ async function render() {
       item.textContent = String(record[field] ?? '');
     }
     outputEl.replaceChildren(holder.content.cloneNode(true));
-    status('Certificate decrypted successfully. Only this browser received the secret key.');
-    printButton.disabled = false;
+    outputEl.hidden = false;
+    statusEl.hidden = true;
+    document.body.classList.add('certificate-ready');
+    fitCertificate();
   } catch (err) {
     console.error('Certificate viewer error:', err.name);
     status(err.name === 'OperationError' ? 'Decryption failed: incorrect key or damaged ciphertext.' : `Unable to open certificate: ${err.message}`, true);
   }
 }
+function fitCertificate() {
+  const certificate = outputEl.querySelector('.certificate');
+  if (!certificate || outputEl.hidden) return;
+  const scale = Math.min(1, outputEl.clientWidth / 1050);
+  certificate.style.transform = `scale(${scale})`;
+  outputEl.style.height = `${certificate.offsetHeight * scale}px`;
+}
+window.addEventListener('resize', fitCertificate);
 window.addEventListener('hashchange', render);
 render();
